@@ -94,6 +94,7 @@
 			# log in new user
 				if($user_id) {
 					setcookie('token',$_POST['token'], strtotime('+1 year'), '/');
+					Router::redirect('/users/index');
 				}
 			}
 		}

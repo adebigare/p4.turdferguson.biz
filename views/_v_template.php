@@ -64,19 +64,6 @@
 	</div> 
 <!-- End Navigation -->
 
-<!-- +1 features callout -->
-	<div id="feature-wrapper">
-		<div class="row" id="feature">
-			<div class="large-9 large-centered columns">
-				<ul>
-					<li><h4> +1 Features:</h4></li>
-					<li><h4><a href="/users/profile/edit">Edit Profile</a></h4></li>
-					<li><h4> <a href="/users/profile/upload_profile_image">Upload A Profile Photo</a></h4></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
 <!-- Main content section -->
 	<div id="main">
 
