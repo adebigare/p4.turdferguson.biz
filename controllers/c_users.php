@@ -18,15 +18,15 @@
 
 			# Setup view
 				$this->template->profile_widget = View::instance('v_users_profile_widget');
-				$this->template->content = View::instance('v_posts_index');
-				$this->template->add_post = View::instance('v_posts_add');
+				$this->template->content = View::instance('v_links_index');
+				$this->template->add_link = View::instance('v_links_add');
 				$this->template->title   = "Index";
 				$this->template->subhead = "<h1>Welcome Back, $name!</h1>";
 				$this->template->profile_widget->user_info = $this->user;
 
 			# Create User's feed
-				$user_feed = Post_feed::user_feed($this->user);
-				$this->template->content->posts = $user_feed;
+				$user_feed = User_feed::compile_feed($this->user);
+				$this->template->content->links = $user_feed;
 
 			# Render Template
 				echo $this->template;	

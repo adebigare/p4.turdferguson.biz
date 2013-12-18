@@ -68,7 +68,7 @@
 	<div id="main">
 
 		<div id="wrapper" class="row">
-
+			
 		<!-- Add in a page heading, if available -->
 			<?php if(isset($subhead)): ?>
 
@@ -88,7 +88,7 @@
 
 			  <div class="large-8 columns" id="inserted-content">
 
-			 		<?php if(isset($add_post)) echo $add_post; ?>
+			 		<?php if(isset($add_link)) echo $add_link; ?>
 			 		<?php if(isset($content)) echo $content; ?>
 			 	
 			 	</div>
@@ -98,7 +98,7 @@
 
 			  <div class="large-10 large-centered columns" id="inserted-content">
 
-					<?php if(isset($add_post)) echo $add_post; ?>
+					<?php if(isset($add_link)) echo $add_link; ?>
 					<?php if(isset($content)) echo $content; ?>
 					<?php if(isset($secondary)) echo $secondary; ?>
 

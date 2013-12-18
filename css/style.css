@@ -18,7 +18,7 @@ ul {
 	list-style-type: none;
 }
 
-li.post_feed {
+li.link_feed {
 	margin-bottom: 2em !important;
 }
 
@@ -134,7 +134,7 @@ p.time {
 	border-color: #094257;
 }
 
-.button.add_post {
+.button.add_link {
 	float: right;
 }
 

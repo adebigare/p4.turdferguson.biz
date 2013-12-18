@@ -1,25 +1,25 @@
 <?php
-	class Post_feed {
+	class User_feed {
 
-		# DB call for your posts and the posts of those you follow
+		# DB call for your links and the links of those you follow
 		
-			public static function user_feed ($user) {
+			public static function compile_feed ($user) {
 
 		    $q = "SELECT 
-	            posts.content,
-	            posts.content_title,
-	            posts.created,
-	            posts.user_id AS post_user_id,
+	            links.lede,
+	            links.title,
+	            links.created,
+	            links.creator_id AS link_creator_id,
 	            users_users.user_id AS follower_id,
 	            users.first_name,
 	            users.last_name
-		        FROM posts
+		        FROM links
 		        LEFT OUTER JOIN users_users 
-	            ON posts.user_id = users_users.user_id_followed
+	            ON links.creator_id = users_users.user_id_followed
 		        INNER JOIN users 
-	            ON posts.user_id = users.user_id
+	            ON links.creator_id = users.user_id
 		        WHERE users_users.user_id = $user->user_id
-		        	OR posts.user_id = $user->user_id
+		        	OR links.creator_id = $user->user_id
 		        ORDER BY created DESC";
 
 				$feed = DB::instance(DB_NAME)->select_rows($q);

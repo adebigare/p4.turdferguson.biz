@@ -6,7 +6,7 @@
 			</div>
 	<?php endif; ?>
 
-	<form class="form" id="Upload_profile_photo" action="/users/p_upload_profile_image" enctype="multipart/form-data" method="post"> 
+	<form class="form" id="Upload_profile_photo" action="/users/p_upload_profile_image" enctype="multipart/form-data" method="POST"> 
 			  
 		<p> <label for="file">File to upload:</label> </p> 
 
