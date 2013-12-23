@@ -11,13 +11,14 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="shortcut icon" href="favicon.gif" type="image/gif">
-	<link rel="shortcut icon" type="image/gif" href="http://www.dataswap2013.com/favicon.gif" />
 
 	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<script src="/js/vendor/jquery.js"></script>
+	<script src="/js/vendor/custom.modernizr.js"></script>
+	<script src="/js/main.js"></script>
 
-	<script src="foundation/js/vendor/custom.modernizr.js"></script>
 
 						
 	<?php 
@@ -114,17 +115,18 @@
 
 	<script>
 		document.write('<script src=' +
-		('__proto__' in {} ? 'foundation/js/vendor/zepto' : 'foundation/js/vendor/jquery') +
+		('__proto__' in {} ? '/js/vendor/zepto' : '/js/vendor/jquery') +
 		'.js><\/script>')
 	</script>
 	<script src="/js/vendor/zepto.js"></script>
 	<script src="/js/vendor/jquery.js"></script>
-	<script src="/js/vendor/readmore.js"></script>
 	<script src="/js/foundation/foundation.js"></script>
 	<script src="/js/foundation/foundation.topbar.js"></script>
 	<script src="/js/foundation/foundation.section.js"></script>
 	<script src="/js/foundation/foundation.reveal.js"></script>
 	<script src="/js/foundation/foundation.magellan.js"></script>
+	<script src="/js/masonry.pkgd.min.js"></script>
+	<script src="http://cdn.embed.ly/jquery.embedly-3.1.1.min.js" type="text/javascript"></script>
 	<script>
 	  $(document).foundation();
 	</script>

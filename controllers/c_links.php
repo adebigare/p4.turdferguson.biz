@@ -18,7 +18,6 @@
 	///////////////////// links Feed ///////////////////////////////////
 	
 		public function index($links = NULL) {
-
 		# View
 			$this->template->content = View::instance('v_links_index');
 			$this->template->add_link = View::instance('v_links_add');
@@ -27,7 +26,7 @@
 			$this->template->subhead = "<h1>Latest News</h1>";
 
 		# Query
-			$this->template->content->links = User_feed::compile_feed($this->user);
+			$this->template->content->links = User_feed::link_feed($this->user);
 
 			echo $this->template;
 

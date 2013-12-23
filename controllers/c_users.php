@@ -14,19 +14,18 @@
 			}
 
 			# Set variables need for profile_widget view
-			$name = $this->user->first_name;
+				$name = $this->user->first_name;
+				
+				$links = User_feed::embedly_array($this->user);
+				$timelines = User_feed::compile_timeline_feed($this->user);
 
 			# Setup view
 				$this->template->profile_widget = View::instance('v_users_profile_widget');
-				$this->template->content = View::instance('v_links_index');
-				$this->template->add_link = View::instance('v_links_add');
-				$this->template->title   = "Index";
-				$this->template->subhead = "<h1>Welcome Back, $name!</h1>";
+				$this->template->content = View::instance('v_timelines_index');
+				$this->template->title = "Index";
 				$this->template->profile_widget->user_info = $this->user;
-
-			# Create User's feed
-				$user_feed = User_feed::compile_feed($this->user);
-				$this->template->content->links = $user_feed;
+				$this->template->content->links = $links;
+				$this->template->content->timelines = $timelines;
 
 			# Render Template
 				echo $this->template;	
