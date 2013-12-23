@@ -1,4 +1,3 @@
-<div id="container">
 	<ul class="timeline_feed">
 	<?php foreach($timelines as $timeline): ?>
 
@@ -10,4 +9,3 @@
 
 	<?php endforeach; ?>
 	</ul>
-</div>

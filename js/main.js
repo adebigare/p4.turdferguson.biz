@@ -1,14 +1,24 @@
 $(document).ready(function (){
-	var $container = $('#container');
+
 	$.embedly.defaults.key = 'eb8655d55cda4cdfb48466f52b4ca264';
-	// initialize
-	$container.masonry({
-	  columnWidth: 400,
-	  itemSelector: '.item'
-	});
 
 	$('a').embedly({query: {chars: 50}});
 
+	var $container = $('#container').masonry();
+
+
+	//initialize Masonry after all images have loaded  
+	$container.imagesLoaded( function() {
+	  $container.masonry({
+	  	itemSelector: '.item',
+	  	stamp:'.stamp',
+	  	"isFitWidth": true,
+	  	columnWidth: "container.querySelector('.grid-sizer')"
+  	});
+	});
+
+
+	///////// Function for more fine grained control of Embedly. Use post-project /////////
 	// $.ajax ({
 	// 	type: 'POST',
 	// 	url: '/timelines/p_index',
@@ -39,17 +49,3 @@ $(document).ready(function (){
 
 });	
 
-
-// encode URI 
-
-// Send encoded URI to embedly  API
-
-// Receive response 
-
-// parse into array
-
-// parse array into html elements
-
-// style elements 
-
-// load onto DOM 

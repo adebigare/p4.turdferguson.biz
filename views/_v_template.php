@@ -18,8 +18,6 @@
 	<script src="/js/vendor/jquery.js"></script>
 	<script src="/js/vendor/custom.modernizr.js"></script>
 	<script src="/js/main.js"></script>
-
-
 						
 	<?php 
 		if(isset($client_files_head)) echo $client_files_head; 
@@ -68,49 +66,42 @@
 <!-- Main content section -->
 	<div id="main">
 
-		<div id="wrapper" class="row">
-			
-		<!-- Add in a page heading, if available -->
-			<?php if(isset($subhead)): ?>
+		<?php if(isset($subhead)): ?>
+			<div class="subhead">
+				<h1><?php echo $subhead?></h1>
+			</div>
+		<?php endif;?>
 
-				<div class="subhead large-12 columns">
-					<?php echo $subhead?>
-				</div>
 
-			<?php endif;?>	
-		<!-- End Headings -->
+		<!-- Begin Masonry Layout -->
+		<div id="container" class="masonry js-masonry">
+
+				<?php if(isset($profile_widget)):?>
+
+					<div id="profile_widget" class="stamp stamp_widget">
+						<?php echo $profile_widget;?>
+					</div>
+
+				<?php endif;?>
+
+				<!-- Add in a page heading, if available -->
+					
+				<!-- End Headings -->
+
 
 		<!-- Grid for view with Profile Module -->
-			<?php if(isset($profile_widget)):?>
 
-				<div id="profile_widget" class="large-3 columns">
-					<?php echo $profile_widget;?>
-				</div>
-
-			  <div class="large-8 columns" id="inserted-content">
+			  <div id="inserted-content">
 
 			 		<?php if(isset($add_link)) echo $add_link; ?>
 			 		<?php if(isset($content)) echo $content; ?>
 			 	
 			 	</div>
 
-	 	<!-- Grid for view w/o Pro. Mod. -->
-			<?php else:?>
-
-			  <div class="large-10 large-centered columns" id="inserted-content">
-
-					<?php if(isset($add_link)) echo $add_link; ?>
-					<?php if(isset($content)) echo $content; ?>
-					<?php if(isset($secondary)) echo $secondary; ?>
-
-				</div>
-
-			<?php endif;?>
-		<!-- End Content -->
-
 		</div>
 		<?php if(isset($client_files_body)) echo $client_files_body; ?>
 	</div>
+	<div class="grid-sizer"></div>
 
 
 	<script>
@@ -127,6 +118,7 @@
 	<script src="/js/foundation/foundation.magellan.js"></script>
 	<script src="/js/masonry.pkgd.min.js"></script>
 	<script src="http://cdn.embed.ly/jquery.embedly-3.1.1.min.js" type="text/javascript"></script>
+	<script src="/js/imagesloaded.pkgd.min.js"></script>
 	<script>
 	  $(document).foundation();
 	</script>

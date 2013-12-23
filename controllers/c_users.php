@@ -16,7 +16,6 @@
 			# Set variables need for profile_widget view
 				$name = $this->user->first_name;
 				
-				$links = User_feed::embedly_array($this->user);
 				$timelines = User_feed::compile_timeline_feed($this->user);
 
 			# Setup view
@@ -26,6 +25,8 @@
 				$this->template->profile_widget->user_info = $this->user;
 				$this->template->content->links = $links;
 				$this->template->content->timelines = $timelines;
+				$this->template->subhead = "Your Timelines";
+
 
 			# Render Template
 				echo $this->template;	

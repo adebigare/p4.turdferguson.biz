@@ -67,38 +67,33 @@
 
 		public function detail($timeline_id=NULL) {
 
-			// $links = DB::instance(DB_NAME)->select_rows($q);
-			$q = "SELECT links.href,
-									 links.creator_id, 
-									 links.timeline_id 
-						 	FROM links 
-						LEFT OUTER JOIN users_users 
-							ON links.creator_id = users_users.user_id_followed 
-						INNER JOIN users 
-							ON links.creator_id = users.user_id
-							WHERE timeline_id = $timeline_id";
-			$links = DB::instance(DB_NAME)->select_rows($q);
-			Debug::printr($links);
-			//encode links 
+			# Pull associated links
+				$q = "SELECT links.href,
+										 links.creator_id, 
+										 links.timeline_id 
+							 	FROM links 
+							INNER JOIN users 
+								ON links.creator_id = users.user_id
+								WHERE timeline_id = $timeline_id";
+				$links = DB::instance(DB_NAME)->select_rows($q);
 
+				$q = "SELECT title FROM timelines WHERE timeline_id = $timeline_id";
 
-			# Populate template with links
+				$subhead = DB::instance(DB_NAME)->select_field($q);
 
-			# Build template out of results
-
+			# Set variables need for profile_widget view
+				$name = $this->user->first_name;
 
 			# Render View
 				$this->template->content = View::instance('v_timelines_detail');
 				$this->template->title = "Timeline Detail";
+				$this->template->content->links = $links;
+				$this->template->subhead = $subhead;
+				$this->template->profile_widget = View::instance('v_users_profile_widget');
+				$this->template->profile_widget->user_info = $this->user;
 
 				echo $this->template;
 
-		}
-
-		public function p_detail() {
-				$links = User_feed::embedly_array($this->user);
-
-				echo json_encode($links);
 		}
 
 }

@@ -2,6 +2,9 @@ body {
 	background-color: #F9F9FF;
 }
 
+#main {
+	padding: 3em;
+}
 
 a {
 	color: #0A6D91;
@@ -62,12 +65,9 @@ p.time {
 	text-transform: uppercase;
 }
 
-#wrapper {
-	margin-top: 3em;
-}
-
-.subhead {
+header {
 	margin: 1em auto;
+	padding: 2em;
 }
 
 .form {
@@ -89,6 +89,7 @@ p.time {
 
 #inserted-content {
 	margin-bottom: 4em;
+	position: inherit;
 }
 
 #profile_widget {
@@ -111,6 +112,12 @@ p.time {
 	text-decoration: none;
 }
 
+.subhead {
+	position: relative;
+	clear: both;
+	padding: 1em;
+	text-align: center;
+}
 
 .login {
 	margin-top: 2em;
@@ -181,17 +188,32 @@ table tr th .button {
 	margin-bottom: inherit;
 }
 
+.embed a, .embed p {
+	line-height: 1.5em;
+}
+
+.padding {
+	padding-left: 2em;
+}
 /*				Masonry Styles    	 */
 
-.item {
-	width: 50%;
-	border: 1px solid black;
-	text-align: center;
-	padding: .25em;
+.grid-sizer { width: 50%; }
 
+.item {
+	text-align: center;
+	padding: .5em;
+	float: left;
 	border-radius: 3px;
 	border: 1px solid #999;
 	box-shadow: 1px 1px 0 #999;
 	background-color: white;
+	width: 30%;
+	margin-right: 1%;
+	margin-top: 1%;
+}
 
+
+.stamp {
+	position: absolute;
+	margin-right: 3em;
 }
