@@ -16,8 +16,9 @@
 			# Pull in arrays from User_feed
 				$timelines = User_feed::compile_timeline_feed($this->user);
 
+
 			# Render View
-				$this->template->content = View::instance('v_timelines_index');
+				$this->template->content = View::instance('v_users_index');
 				$this->template->title = "All Timelines";
 				$this->template->profile_widget = View::instance('v_users_profile_widget');
 				$this->template->content->timelines = $timelines;

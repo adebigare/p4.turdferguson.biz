@@ -7,16 +7,16 @@
 
 	////////////////////// USERS HOME ////////////////////////////////
 
-		public function index($none=NULL) {
+		public function index() {
 
 			if(!$this->user) {
 						die(Router::redirect('/index/index'));
 			}
-
 			# Set variables need for profile_widget view
 				$name = $this->user->first_name;
 				
 				$timelines = User_feed::compile_timeline_feed($this->user);
+				$none = (count($timelines) == 0);
 
 			# Setup view
 				$this->template->profile_widget = View::instance('v_users_profile_widget');
@@ -24,8 +24,8 @@
 				$this->template->title = "Index";
 				$this->template->profile_widget->user_info = $this->user;
 				$this->template->content->timelines = $timelines;
-				$this->template->subhead = "Your Timelines";
 				$this->template->content->none = $none;
+				$this->template->subhead = "Your Timelines";
 
 
 			# Render Template
@@ -90,6 +90,15 @@
 				$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 
 				$this->userObj->create_initial_avatar($user_id);
+
+				$data = Array (
+					"user_id" => $this->user->user_id,
+					"user_id_followed" => $this->user->user_id,
+					"user_user_id" => $this->user->user_id,
+					"created" => Time::now()
+				);
+
+				DB::instance(DB_NAME)->insert_row('users_users', $data);
 
 			# log in new user
 				if($user_id) {

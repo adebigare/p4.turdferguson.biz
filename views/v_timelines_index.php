@@ -1,4 +1,4 @@
-	<?php if(isset($none)): ?>
+	<?php if(isset($none) && ($none == TRUE)): ?>
 		<div id="none" class="stamp">
 		<h2>It looks like you're not following anyone.</h2>
 		<h3>In order for timelines to start showing up here, navigate to the collaborators tab in the the menu and start following some people!</h3>
