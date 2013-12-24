@@ -9,9 +9,9 @@ For example there's a constant in core config set for TIME_FORMAT
 
 If you want a different default time format for this app, set it below
 
-	define('TIME_FORMAT', 'M j Y'); 
-
 */
+
+define('TIME_FORMAT', 'M j, Y'); 
 
 # What is the name of this app?
 	define('APP_NAME', 'Collaborative Timeline');  

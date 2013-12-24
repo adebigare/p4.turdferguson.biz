@@ -1,7 +1,4 @@
 
-<div class="subhead large-12 columns">
-</div>
-
 <?php if(isset($user_info)): ?>
 
 	<?php if($success): ?>
@@ -23,7 +20,7 @@
 
 		</div>
 
-		<div class="large-8 columns">
+		<div class="large-8 columns profile_info">
 
 			<?php if($editing): ?>
 
@@ -51,7 +48,7 @@
 
 			<?php else: ?>
 
-				<ul class="profile_info">
+				<ul>
 					<li>Name:<h4><?=$user_info->first_name?> <?=$user_info->last_name?></h4></li>
 					<li>Email:<h4><?=$user_info->email?></h4></li>
 					<li>Personal Website:<h4><?=$user_info->website?></h4></li>

@@ -46,18 +46,18 @@
 
 		public function p_add() {
 
-			# Append relevant data to link content before sending to DB
-				$_POST['creator_id'] = $this->user->user_id;
-
-				$_POST['created'] = Time::now();
-
-			# Pulls the title from the entered hyperlink and adds it to the table
-				$_POST['title'] = User_feed::get_remote_page_title($_POST['href']);
+			$data = Array (
+				"creator_id" => $this->user->user_id,
+				"created" => Time::now(),
+				"title" => User_feed::get_remote_page_title($_POST['href']),
+				"timeline_id" => $_POST['timeline_id'],
+				"href" => $_POST['href']
+				);
 
 			# Load into the DB
-				DB::instance(DB_NAME)->insert('links',$_POST);
+				DB::instance(DB_NAME)->insert('links',$data);
 
-				Router::redirect('/users/index');
+				// Router::redirect('/timelines/index');
 		}
 
 	}

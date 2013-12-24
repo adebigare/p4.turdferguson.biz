@@ -67,16 +67,25 @@
 
 		public function detail($timeline_id=NULL) {
 
+			if ($timeline_id==NULL) {
+				Router::redirect('/users/index');
+			}
+
 			# Pull associated links
 				$q = "SELECT links.href,
 										 links.creator_id, 
-										 links.timeline_id 
+										 links.timeline_id,
+										 links.created,
+										 users.first_name,
+										 users.last_name
 							 	FROM links 
 							INNER JOIN users 
 								ON links.creator_id = users.user_id
-								WHERE timeline_id = $timeline_id";
+								WHERE timeline_id = $timeline_id
+								ORDER BY created DESC";
 				$links = DB::instance(DB_NAME)->select_rows($q);
 
+			# Pull timeline titles
 				$q = "SELECT title FROM timelines WHERE timeline_id = $timeline_id";
 
 				$subhead = DB::instance(DB_NAME)->select_field($q);
@@ -88,7 +97,10 @@
 				$this->template->content = View::instance('v_timelines_detail');
 				$this->template->title = "Timeline Detail";
 				$this->template->content->links = $links;
+				$this->template->content->created = $created;
 				$this->template->subhead = $subhead;
+				$this->template->add_link = View::instance('v_links_add');
+				$this->template->add_link->timeline_id = $timeline_id;
 				$this->template->profile_widget = View::instance('v_users_profile_widget');
 				$this->template->profile_widget->user_info = $this->user;
 

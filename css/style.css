@@ -35,6 +35,7 @@ img.avatar {
 	margin: auto;
 	border-radius: 3px;
 	border: 1px solid #0A6D91;
+	max-width: 150px;
 	box-shadow: 1px 1px 0 #0A6D91;
 	-moz-box-shadow: 1px 1px 0 #0A6D91;
 	-webkit-box-shadow: 1px 1px 0 #0A6D91;
@@ -75,8 +76,8 @@ header {
 	border: 1px solid #999;
 	box-shadow: 1px 1px 0 #999;
 	padding: .5em;
-	margin: 3em auto;
 	background-color: white;
+	margin: 1em auto;
 }
 
 #signup-form h3 {
@@ -89,7 +90,9 @@ header {
 
 #inserted-content {
 	margin-bottom: 4em;
-	position: inherit;
+	/*margin-left: 3em;*/
+	position: relative;
+
 }
 
 #profile_widget {
@@ -97,20 +100,22 @@ header {
 	border: 1px solid #999;
 	box-shadow: 1px 1px 0 #999;
 	padding: .5em;
-	background-color: white;
+	background-color: #0A6D91;
 }
 
-#profile_widget h4 {
+#profile_widget h4, #profile_widget h2 {
 	text-align: center;
+	color: #fff;
 }
 
 #profile_widget a {
 	float: right;
-	background-color: #BBE9FA;
-	border-color: #BBE9FA;
+	background-color: #fff;
+	border-color: #fff;
 	color: #0A6D91;
 	text-decoration: none;
 }
+
 
 .subhead {
 	position: relative;
@@ -188,32 +193,46 @@ table tr th .button {
 	margin-bottom: inherit;
 }
 
-.embed a, .embed p {
+.embed a, .description {
 	line-height: 1.5em;
 }
 
 .padding {
 	padding-left: 2em;
 }
-/*				Masonry Styles    	 */
 
-.grid-sizer { width: 50%; }
+#results {
+	color: red;
+	float: right;
+}
+
+/*				Masonry Styles    	 */
 
 .item {
 	text-align: center;
+	position: relative;
 	padding: .5em;
 	float: left;
 	border-radius: 3px;
 	border: 1px solid #999;
 	box-shadow: 1px 1px 0 #999;
 	background-color: white;
-	width: 30%;
+	min-width: 100px;
 	margin-right: 1%;
 	margin-top: 1%;
+	width: 20%;
 }
 
 
 .stamp {
 	position: absolute;
-	margin-right: 3em;
+	 margin-right: 1em;
+}
+
+#none {
+	width: 600px;
+}
+
+.grid-sizer {
+	width: 33%;
 }

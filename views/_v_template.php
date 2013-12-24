@@ -11,13 +11,14 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="shortcut icon" href="favicon.gif" type="image/gif">
-
 	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<script src="/js/vendor/jquery.js"></script>
+	<script src="/js/jquery.form.js"></script>
 	<script src="/js/vendor/custom.modernizr.js"></script>
 	<script src="/js/main.js"></script>
+
 						
 	<?php 
 		if(isset($client_files_head)) echo $client_files_head; 
@@ -42,6 +43,8 @@
 		 	  	<li class="divider"></li>
 				<!-- Menu for users who are logged in -->
 					<?php if($user): ?>
+							<li class="divider"></li>
+							<li><a href='/timelines/add'>Create a Timeline</a></li>
 							<li class="divider"></li>
 							<li><a href='/users/profile'>Profile</a></li>
 							<li class="divider"></li>
@@ -69,12 +72,14 @@
 		<?php if(isset($subhead)): ?>
 			<div class="subhead">
 				<h1><?php echo $subhead?></h1>
+				<?php if(isset($add_link)) echo $add_link; ?>
 			</div>
 		<?php endif;?>
 
 
 		<!-- Begin Masonry Layout -->
 		<div id="container" class="masonry js-masonry">
+			<div class="grid-sizer"></div>
 
 				<?php if(isset($profile_widget)):?>
 
@@ -84,33 +89,20 @@
 
 				<?php endif;?>
 
-				<!-- Add in a page heading, if available -->
-					
-				<!-- End Headings -->
-
-
-		<!-- Grid for view with Profile Module -->
-
 			  <div id="inserted-content">
 
-			 		<?php if(isset($add_link)) echo $add_link; ?>
 			 		<?php if(isset($content)) echo $content; ?>
 			 	
 			 	</div>
-
 		</div>
-		<?php if(isset($client_files_body)) echo $client_files_body; ?>
 	</div>
-	<div class="grid-sizer"></div>
-
-
 	<script>
 		document.write('<script src=' +
 		('__proto__' in {} ? '/js/vendor/zepto' : '/js/vendor/jquery') +
 		'.js><\/script>')
 	</script>
+	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 	<script src="/js/vendor/zepto.js"></script>
-	<script src="/js/vendor/jquery.js"></script>
 	<script src="/js/foundation/foundation.js"></script>
 	<script src="/js/foundation/foundation.topbar.js"></script>
 	<script src="/js/foundation/foundation.section.js"></script>

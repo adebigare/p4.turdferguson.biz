@@ -5,7 +5,7 @@
 </div>	
 
 <?php if(isset($error)): ?>
-		<div class=" large-8 columns error"><p>
+		<div class=" large-6 columns error"><p>
 			Login failed. Double check your email and password.
 		</p></div>
 <?php endif; ?>

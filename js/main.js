@@ -10,13 +10,26 @@ $(document).ready(function (){
 	//initialize Masonry after all images have loaded  
 	$container.imagesLoaded( function() {
 	  $container.masonry({
-	  	itemSelector: '.item',
-	  	stamp:'.stamp',
+	  	'itemSelector': '.item',
+	  	'stamp':'.stamp',
 	  	"isFitWidth": true,
-	  	columnWidth: "container.querySelector('.grid-sizer')"
+	  	columnWidth: container.querySelector('.grid-sizer'),
   	});
 	});
 
+	$('#add-link-form').ajaxForm({
+			type: 'POST',
+			url: '/links/p_add',
+			beforeSubmit: function() {
+				$('#results').html("Adding...");
+			},
+			success: function(response) {
+				$('#results').html("Your post was added.");
+				window.location.reload(true);
+			}
+	});
+
+});	
 
 	///////// Function for more fine grained control of Embedly. Use post-project /////////
 	// $.ajax ({
@@ -47,5 +60,5 @@ $(document).ready(function (){
 
 
 
-});	
+
 

@@ -7,7 +7,7 @@
 
 	////////////////////// USERS HOME ////////////////////////////////
 
-		public function index() {
+		public function index($none=NULL) {
 
 			if(!$this->user) {
 						die(Router::redirect('/index/index'));
@@ -23,9 +23,9 @@
 				$this->template->content = View::instance('v_timelines_index');
 				$this->template->title = "Index";
 				$this->template->profile_widget->user_info = $this->user;
-				$this->template->content->links = $links;
 				$this->template->content->timelines = $timelines;
 				$this->template->subhead = "Your Timelines";
+				$this->template->content->none = $none;
 
 
 			# Render Template

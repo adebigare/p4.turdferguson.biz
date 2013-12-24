@@ -1,5 +1,7 @@
 <?php if(isset($user_info)): ?>
 
+	<h2>Your Profile</h2>
+
 	<img class="avatar" src="<?=$user_info->avatar?>">
 
 	<h4><?=$user_info->first_name?> <?=$user_info->last_name?></h4>
